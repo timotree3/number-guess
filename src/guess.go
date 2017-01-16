@@ -31,7 +31,7 @@ func main() {
 	var turns int
 Loop:
 	for turns = 0; turns < MAXTURNS; turns++ {
-		fmt.Printf("You have %d turns left. Take your guess: ", MAXTURNS - turns)
+		fmt.Printf("You have %d turn(s) left. Take your guess: ", MAXTURNS - turns)
 		fmt.Scanln(&guess)
 		switch {
 		case guess == number:
