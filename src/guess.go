@@ -18,7 +18,7 @@ const (
 )
 
 func init() {
-	rand.Seed(time.Now().UnixNano()) // Initialize random seed
+	rand.Seed(time.Now().UnixNano()) // Initialize pseudorandom seed
 }
 
 func main() {
@@ -27,7 +27,7 @@ func main() {
 	fmt.Println("If you guess wrong we will tell you how close you were using a hot/cold system.")
 	fmt.Printf("You will only have %d turns to guess right.\n", MAXTURNS)
 	number := float64(rand.Intn(MAXNUMBER) + 1) // Normally it ranges from 0, MAXNUMBER -1. This way it ranges from 1, MAXNUMBER.
-	var guess float64
+	var guess float64 // float64 is necessary because the math.Abs() function requires them.
 	var turns int
 Loop:
 	for turns = 0; turns < MAXTURNS; turns++ {
@@ -50,9 +50,9 @@ Loop:
 			fmt.Printf("Freezing. (further than %.0f.)\n", COLD)
 		}
 	}
-	if turns == MAXTURNS {
+	if turns == MAXTURNS { // if the game ended because you ran out of turns
 		fmt.Println("You have lost. Better luck next time!")
-	} else {
+	} else { // if you still had turns left (the loop was cut short)
 		fmt.Printf("You have won with %d turn(s) left. Good thing there isn't a prize.\n", MAXTURNS-turns)
 	}
 }
