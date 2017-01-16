@@ -26,12 +26,12 @@ func main() {
 	fmt.Printf("We haven chosen a random number from 1 to %d; your job is to guess it.\n", MAXNUMBER)
 	fmt.Println("If you guess wrong we will tell you how close you were using a hot/cold system.")
 	fmt.Printf("You will only have %d turns to guess right.\n", MAXTURNS)
-	number := float64(rand.Intn(MAXNUMBER) + 1)
+	number := float64(rand.Intn(MAXNUMBER) + 1) // Normally it ranges from 0, MAXNUMBER -1. This way it ranges from 1, MAXNUMBER.
 	var guess float64
 	var turns int
 Loop:
 	for turns = 0; turns < MAXTURNS; turns++ {
-		fmt.Printf("Take your guess: ")
+		fmt.Printf("You have %d turns left. Take your guess: ", MAXTURNS - turns)
 		fmt.Scanln(&guess)
 		switch {
 		case guess == number:
