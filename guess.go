@@ -22,10 +22,11 @@ func init() {
 }
 
 func main() {
-	fmt.Println("Welcome to the Guessing Game!")
-	fmt.Printf("We haven chosen a random number from 1 to %d; your job is to guess it.\n", MAXNUMBER)
-	fmt.Println("If you guess wrong we will tell you how close you were using a hot/cold system.")
-	fmt.Printf("You will only have %d turns to guess right.\n", MAXTURNS)
+	fmt.Printf(`Welcome to the Guessing Game!
+We haven chosen a random number from 1 to %d; your job is to guess it.
+If you guess wrong we will tell you how close you were using a hot/cold system.
+You will only have %d turns to guess right.
+`, MAXNUMBER, MAXTURNS)
 	number := float64(rand.Intn(MAXNUMBER) + 1) // Normally it ranges from 0, MAXNUMBER -1. This way it ranges from 1, MAXNUMBER.
 	var guess float64 // float64 is necessary because the math.Abs() function requires them.
 	var turns int
